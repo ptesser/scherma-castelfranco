@@ -1,0 +1,55 @@
+% CARICA IL LAYOUT PER IL DOCUMENTO
+\input{layout.tex}
+	
+% DEFINIZIONE ELEMENTI FRONTESPIZIO
+\title{\bfseries Scherma Castelfranco Veneto}
+\author{Chiara Bigarella mat. 1008533\\Pavanello Mirko mat. 1009424 \\Massimiliano Sartoretto mat. 1008168,\\ Paolo Tesser mat. 1026527}
+\date{A.A. 2013/2014}
+\begin{document}
+%\maketitle
+%\vspace {20 mm}
+%\includegraphics[width=150mm, height=120mm]{images/page_logo.png}
+\input{Frontespizio.tex}
+
+% INDICI DI CONTENUTO E IMMAGINI
+\pagestyle{romano}
+\pagenumbering{Roman}
+\newpage
+	\tableofcontents
+	\listoffigures
+\newpage
+\pagenumbering{arabic}
+\pagestyle{std}
+
+% CORPO DEL DOCUMENTO
+
+\newpage
+\section{Accesso al sito}
+	\input{accesso.tex}
+
+\section{Descrizione generale}
+	\input{descrizione.tex}
+	
+\newpage
+\section{Progettazione}
+	\subsection{Struttura}
+		\input{progettazione-struttura.tex}
+	\subsection{Presentazione}
+		\input{progettazione-presentazione.tex}
+	\subsection{Scelte implemetative}
+		\input{progettazione-scelte.tex}
+\newpage
+\section{Accessibilit\`a}
+	\input{accessibilita.tex}	
+
+\newpage
+\section{Validazione}
+	\input{validazione.tex}	
+
+\newpage
+\section{Compatibilit\`a}
+	\input{compatibilita.tex}
+\newpage
+\section{Ruoli}
+	\input{ruoli.tex}
+\end{document}

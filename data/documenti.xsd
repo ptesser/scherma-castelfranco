@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.documenti.com"
+			targetNamespace="http://www.documenti.com" elementFormDefault="qualified">
+
+
+<xs:element name="testi" type="tipo-testo"/>
+
+<xs:complexType name="tipo-testo">
+	<xs:choice minOccurs="0" maxOccurs="unbounded">
+		<xs:element name="documento" minOccurs="0" maxOccurs="unbounded" type="tipo-documento" /> <!-- inserire in un tag <div> -->
+	</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="tipo-documento">
+	<xs:sequence>
+		<xs:element name="titolo" type="tipo-titolo" />
+		<xs:element name="paragrafo" type="tipo-paragrafo" />
+		<xs:element name="doc-completo" nillable="true" type="xs:string" /> <!-- inserire in un tag <a> -->
+		<xs:element name="dimensione" nillable="true" type="xs:integer" />
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipo-titolo" mixed="true">
+	<xs:sequence minOccurs="0" maxOccurs="unbounded">
+		<xs:element name="span" type="tipo-span" />
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipo-paragrafo" mixed="true"> <!-- alternanza tra testo ed elementi span-->
+	<xs:choice minOccurs="0" maxOccurs="unbounded">
+		<xs:element name="span" type="tipo-span" />
+		<xs:element name="em" type="xs:string" />
+		<xs:element name="strong" type="xs:string" />
+	</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="tipo-span" >  <!--Content model con attributi e contenuto semplice -->
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute name="lang" type="xs:string" default="en" />
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+</xs:schema>

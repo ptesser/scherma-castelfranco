@@ -1,0 +1,32 @@
+\subsubsection{Repository}
+	La cartella del progetto \`e stata organizzata nelle seguenti cartelle:
+	\begin{itemize}
+		\item {\bfseries public\_html} che contiene le pagine statiche, gli stili e gli script javaScript.
+		\item {\bfseries data} che contiene i documenti accessibili solo internamente al server, quindi i file xml, i fogli di trasformazione, la definizione degli schemi e le pagine html private che vengono usate da Perl per comporre pagine dinamiche. Limitiamo cos\`i al massimo il rischio di intrusioni.
+		\item {\bfseries cgi-bin} che contiene gli script scritti in Perl.
+	\end{itemize}
+\subsubsection{Definizione}
+	\noindent La parte \underline{utente} \`e composta da 7 pagine:
+\begin{itemize}
+	\item {\bfseries\textit{Articoli.cgi}} mostra gli articoli recentemente inseriti. Ne rende disponibili 5 al primo caricamento, e attraverso un link “mostra altri“ permette di visualizzarne un numero sempre superiore. Uno script javascript si occupa di creare un'ancora sull'ultimo articolo visionato in modo da non causare disorientamento.
+	\item {\bfseries\textit{Documenti.cgi}} mostra i documento scaricabili con una breve descrizione. Ad ogni documento \`e associata l'estensione del file e la dimensione, in modo da dare all'utente pi\`u informazioni sul download.
+	\item {\bfseries\textit{Storia.html}} pagina statica che descrive la storia della societ\`a.
+	\item {\bfseries\textit{Staff.html}} pagina statica che mostra le persone che fanno parte dello staff.
+	\item {\bfseries\textit{Corsi.html}} pagina statica che mostra l'orario dei corsi.
+	\item {\bfseries\textit{amministra.cgi}} mostra un form di login per l'accesso all'area privata.
+\end{itemize}
+
+La parte \underline{amministratore} \`e composta da 6 pagine:
+\begin{itemize}
+	\item {\bfseries\textit{InserisciArticolo.cgi}} permette di inserire un nuovo articolo. In questa pagina \`e presente un form di inserimento, con dei bottoni che permettono di inserire il testo formattato attraverso dei tag html. Poich\`e l'amministratore ha interesse nel rendere accessibili i propri contenuti, sar\`a aiutato dall'editor per descrivere in maniera opportuna tutte le parole che inserisce. Nel caso javaScript sia disabilitato scompaiono i bottoni e appare una breve guida sui tag disponibili.
+	\item {\bfseries\textit{ModificaArticolo.cgi}} che permette di scegliere un articolo da modificare e lo ripresenta in un form di modifica.
+	\item {\bfseries\textit{EliminaArticolo.cgi}} che permette di selezionare uno o pi\`u articoli da eliminare.
+	\item {\bfseries\textit{InserisciDocumento.cgi}} che permette di inserire un nuovo documento attraverso un form, dal quale \`e possibile inserire un titolo, una breve descrizione e il documento stesso.
+	\item {\bfseries\textit{ModificaDocumento.cgi}} permette di scegliere un documento da modificare, e lo ripresenta in un form di modifica.
+	\item {\bfseries\textit{EliminaDocumento.cgi}}  permette di selezionare uno o pi\`u documenti da eliminare.
+\end{itemize}
+
+	Tutte queste pagine sono dinamiche, create attraverso lo script perl \textit{amministraSezionePrivata.cgi} che si occupa di delegare alle funzioni la composizione delle pagine html da dare in output.
+	
+\subsubsection{Database}
+	La persistenza dei data \`e ottenuta attraverso due file XML validi secondo gli schemi definiti in \textit{articoli.xsd} e \textit{documenti.xsd}. Si \`e scelto XML Schema poich\`e garantisce l'espressivit\`a di cui abbiamo bisogno, in particolare per avere a disposizione i tipi primitivi date e anyURI, utili nella definizione di articoli e documenti.

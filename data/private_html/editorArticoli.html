@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Editor inserimento nuovo articolo  - Scherma Castelfranco Veneto</title>
+		<meta name="description" content="Pagina contente l'editor di modifica degli articoli" />
+		<meta name="author" content="Chiara Bigarella, Mirko Pavanello, Massimiliano Sartoretto, Paolo Tesser" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/stile.css" type="text/css"/>
+		<!--[if (IE 6)|(IE 7)|(IE 8)]>
+			<link rel="stylesheet" href="../css/stileIE.css" type="text/css"/>
+		<![endif]-->
+		<link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+		<link rel="Shortcut Icon" href="../img/struttura/favicon.ico" type="image/x-icon" />
+		<link href="../css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet"/>
+		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet"/>
+		<script  type="text/javascript" charset="UTF-8" src="../js/librerie/jquery-1.11.0.min.js" ></script>
+		<script type="text/javascript" src="../js/librerie/jquery-ui-1.10.4.custom.min.js"></script>
+		<script  type="text/javascript" charset="UTF-8" src="../js/script.js" ></script>
+		<noscript>
+			<link rel="stylesheet" href="../css/stilenojava.css" type="text/css"/>
+		</noscript>
+	</head>
+	<body>
+		<div id="header"></div>
+
+		<p class="nascondi"><a href="#breadcrumb">Salta <span lang="fr">menù</span> e vai al contenuto</a> o <a href="#sidebar">salta contenuto e vai alla <span lang="en">sidebar</span> contenente alcune informazioni sull'inserimento del testo</a></p>
+
+		<div id="nav">
+			<div id="nav-1">
+				<ul id="sezione-nav-1"><li id="image-menu" title="contiene immagine del menù per il mobile"></li></ul>
+				<ul id="panel-nav-1">
+					<li __ACTIVEINS__ > __LINKINS__ </li>
+					<li __ACTIVEMOD__ > __LINKMOD__ </li>
+					<li class="last-link"><a href="amministraSezionePrivata.cgi?Seleziona=elimina" tabindex="2">Elimina</a></li>
+				</ul>
+			</div>
+			<div id="nav-2">
+				<a href="articoli.cgi" tabindex="3">Torna al sito</a>
+				<a href="amministra.cgi?logout=esci" tabindex="4">Effettua <span lang="en">Logout</span></a>
+			</div>
+
+		</div>
+
+		<div id="breadcrumb">
+			<p>Ti trovi in: Amministra > Inserisci</p>
+		</div>
+
+		<div id="content" >
+			<div class="struttura-select">
+				<form name="selectCategory" method="post" action="amministraSezionePrivata.cgi">
+					<label>Seleziona categoria:</label>
+					<select onchange="selectChange()" name="cosa">
+						<option __SELECTART__ value="articolo" >Articolo</option>
+						<option __SELECTDOC__ value="documento" >Documento</option>
+					</select>
+					<input type="hidden" name="Seleziona" value="__VALSELEZIONA__"/>
+					<noscript>
+						<input type="submit" class ="stile-button" name="__SUBMITYPE__" value="__SUBMITYPE__">
+					</noscript>
+				</form>
+			</div>
+			<div class="struttura-content" id="inserisci">
+				<form name="inserisciArticoloForm" id="inserisci-form" method="POST" action="amministraSezionePrivata.cgi" enctype="multipart/form-data">
+					<p class="errore">__INCASODIERRORE__</p>
+					<fieldset>
+						<legend>Inserisci dati dell'articolo</legend>
+					<div>
+						<p><label>
+							Luogo: <input id="luogo" type="text" name="luogo" value="__LUOGO__" tabindex="5"/>
+						</label></p>
+						<p><label>
+							Data: <noscript><em>(aaaa-mm-gg)</em></noscript><input id="datepicker" type="text" name="datepicker" value="__DATA__" tabindex="6"/>
+						</label></p>
+					</div>
+					<div>
+						<p><label>
+							Titolo: <input type="text" id="titolo" name="titolo" size="40" value="__TITOLO__" onblur="setId(this.id)" tabindex="7" />
+						</label></p>
+					</div>
+					<p>Testo: </p>
+					<p><textarea id="testo" name="testo" rows="10" cols="50" onblur="setId(this.id)" tabindex="8">__TESTO__</textarea></p>
+					<div id="textOptions">
+						<fieldset id="lingue-stile">
+							<legend>Bottoni inserimento <span lang="en">tag</span> speciali</legend>
+							<p>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <span lang=&#34;en&#34;></span>')" tabindex="9">Inglese</button>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <span lang=&#34;fr&#34;></span>')" tabindex="10">Francese</button>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <span lang=&#34;de&#34;></span>')" tabindex="11">Tedesco</button>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <span lang=&#34;ch&#34;></span>')" tabindex="12">Svizzero</button>
+							</p>
+							<p>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <em></em>')" tabindex="13"><em>Corsivo</em></button>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <strong></strong>')" tabindex="14"><strong>Grassetto</strong></button>
+							<button type="button" class ="stile-button" onclick="InsertCodeInTextArea(' <abbr title=&#34; &#34;></abbr>')" tabindex="15">Abbreviazione</button>
+							<p>
+						</fieldset>
+					</div>
+					<fieldset id="inserisci-immagine">
+						<legend>Inserisci immagine</legend>
+						<p>__INPUTFOTOVECCHIA__</p>
+						<p>__VECCHIOALTFOTO__</p>
+						<p class="errore">__REINSERISCIFOTO__</p>
+						<p><label>Scegli nuova foto: <input type="file" name="foto" accept="image/*" tabindex="16"/></label></p>
+						<p><label>Scegli nuova alternativa per la foto: <input type="text" id="altfoto" name="altfoto" value="__ALT__" tabindex="17"/></label></p>
+					</fieldset>
+					<input type="hidden" name="vecchiaData" value="__VECCHIADATA__"/>
+					<input type="hidden" name="vecchioLuogo" value="__VECCHIOLUOGO__"/>
+					<input type="hidden" name="modifica" value="__VALOREMODIFICA__"/>
+					<p><input type="submit" class ="stile-submit" name="submit" id="submit" value="__ACTION__" onclick="return checkInserimentoArticolo();" tabindex="18"/></p>
+					</fieldset>
+				</form>
+
+				<div>
+					<span id="errors"></span>
+				</div>
+			</div>
+		</div>
+
+		<p class="nascondi"><a href="#nav">Torna al <span lang="fr">menù</span> di amministrazione</a></p>
+
+		<div id="sidebar">
+			<dl id="legenda-inserimento">
+				<dt>Legenda <span lang="en">tag</span> inserimento</dt>
+				<dd>Le seguenti istruzioni servono per comprendere l'utilizzo dei bottoni presenti nella <span lang="en">form</span>.</dd>
+				<dd><span class="bold">Inglese:</span> inserisce un <span lang="en">tag</span> per inserire parole in lingua inglese;</dd>
+				<dd><span class="bold">Francese:</span> inserisce un <span lang="en">tag</span> per inserire parole in lingua francese;</dd>
+				<dd><span class="bold">Tedesco:</span> inserisce un <span lang="en">tag</span> per inserire parole in lingua tedesca;</dd>
+				<dd><span class="bold">Svizzero:</span> inserisce un <span lang="en">tag</span> per inserire parole in lingua svizzera;</dd>
+				<dd><span class="bold">Corsivo:</span> inserisce un <span lang="en">tag</span> per inserire parole scritte in corsivo;</dd>
+				<dd><span class="bold">Grassetto:</span> inserisce un <span lang="en">tag</span> per inserire parole scritte in grassetto;</dd>
+				<dd><span class="bold">Abbreviazione:</span> inserisce un <span lang="en">tag</span> per inserire delle abbreviazioni;</dd>
+				<dd>Per completare la procedura servirà posizionarsi al centro dei due <span lang="en">tag</span> e inserire il testo che si vuole venga formattato in maniera particolare. Solo per l'inserimento delle abbreviazioni sarà necessario inserire anche un testo, che indichi il contenuto esteso dell'abbreviazione, all'interno dell'attributo <span lang="en">title</span>.</dd>
+				<dd><span class="bold">esempio: </span>&lt;span lang="en"&gt;<span class="bold">Posizionarsi qui</span>&lt;/span&gt; </dd>
+			</dl>
+
+			<dl id="legenda-inserimento-nojava">
+				<dt>Legenda tag inserimento</dt>
+				<dd>Le seguenti istruzioni servono per capire come inserire del testo avente una particolare formattazione nella <span lang="en">form</span> quando viene disabilitato javascript e i pulsanti automatici di inserimento non vengono visualizzati.</dd>
+				<dd>Le opzioni di formattazione che si possono applicare sono:</dd>
+				<dd><span class="bold">Inglese:</span> inserire &lt;span lang="en"&gt;&lt;/span&gt; per una parola in lingua inglese;</dd>
+				<dd><span class="bold">Francese:</span> inserire &lt;span lang="fr"&gt;&lt;/span&gt; per una parola in lingua francese;</dd>
+				<dd><span class="bold">Tedesco:</span> inserire &lt;span lang="de"&gt;&lt;/span&gt; per una parola in lingua tedesca;</dd>
+				<dd><span class="bold">Svizzero:</span> inserire &lt;span lang="ch"&gt;&lt;/span&gt; per una parola in lingua svizzera;</dd>
+				<dd></dd>
+				<dd><span class="bold">Corsivo:</span> inserire &lt;em&gt;&lt;/em&gt;</dd>
+				<dd><span class="bold">Grassetto:</span> inserire &lt;strong&gt;&lt;/strong&gt;</dd>
+				<dd><span class="bold">Abbreviazione:</span> inserire &lt;abbr title="..."&gt;&lt;/abbr&gt;</dd>
+				<dd>Per completare la procedura servirà posizionarsi al centro dei due <span lang="en">tag</span> e inserire il testo che si vuole venga formattato in maniera particolare.  Solo per l'inserimento delle abbreviazioni sarà necessario inserire anche un testo, che indichi il contenuto esteso dell'abbreviazione, all'interno dell'attributo <span lang="en">title</span></dd>
+				<dd><span class="bold">esempio: </span>&lt;span lang="en"&gt;<span class="bold">Posizionarsi qui</span>&lt;/span&gt; </dd>
+
+			</dl>
+
+		</div>
+
+		<p class="nascondi"><a href="#nav">Torna al <span lang="fr">menù</span> di amministrazione</a> o <a href="#content">torna al <span lang="en">form</span> di inserimento</a></p>
+
+		<div id="footer">
+			<img class="footerElement" src="../img/struttura/valid-xhtml11.png" alt="immagine che indica che il sito web è valido come xhtml attraverso la verifica del W3C"/>
+			<span class="footerElement">- L'intrusa - <span lang="en">All rights reserved</span> - </span>
+			<img class="footerElement" src="../img/struttura/vcss-blue.gif" alt="immagine che indica che lo stile applicato al sito web è valido come css attraverso la verifica del W3C"/>
+		</div>
+
+
+	</body>
+</html>

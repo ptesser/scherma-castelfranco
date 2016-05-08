@@ -1,0 +1,84 @@
+<!DOCTYPE html >
+<html lang="it">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Form Modifica __TIPO__ - Scherma Castelfranco Veneto</title>
+		<meta name="description" content="Pagina che serve per scegliere quale articolo/documento modificare" />
+		<meta name="author" content="Chiara Bigarella, Mirko Pavanello, Massimiliano Sartoretto, Paolo Tesser" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/stile.css" type="text/css"/>
+		<!--[if (IE 6)|(IE 7)|(IE 8)]>
+			<link rel="stylesheet" href="../css/stileIE.css" type="text/css"/>
+		<![endif]-->
+		<link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+		<link rel="Shortcut Icon" href="../img/struttura/favicon.ico" type="image/x-icon" />
+		<script  type="text/javascript" charset="UTF-8" src="../js/librerie/jquery-1.11.0.min.js" ></script>
+		<script  type="text/javascript" charset="UTF-8" src="../js/script.js" ></script>
+		<noscript>
+			<link rel="stylesheet" href="../css/stilenojava.css" type="text/css"/>
+		</noscript>
+	</head>
+	<body>
+		<div id="header"></div>
+
+		<p class="nascondi"><a href="#breadcrumb">Salta <span lang="fr">menù</span> e vai al contenuto</a></p>
+
+		<div id="nav">
+			<div id="nav-1">
+				<ul id="sezione-nav-1"><li id="image-menu" title="contiene immagine del menù per il mobile"></li></ul>
+				<ul id="panel-nav-1">
+					<li><a href="amministraSezionePrivata.cgi?Seleziona=inserisci" tabindex="1">Inserisci</a></li>
+					<li id="active">Modifica</li>
+					<li class="last-link"><a href="amministraSezionePrivata.cgi?Seleziona=elimina" tabindex="2">Elimina</a></li>
+				</ul>
+			</div>
+
+			<div id="nav-2">
+				<a href="articoli.cgi" tabindex="3">Torna al sito</a>
+				<a href="amministra.cgi?logout=esci" tabindex="4">Effettua Logout</a>
+			</div>
+
+		</div>
+
+		<div id="breadcrumb">
+			<p>Ti trovi in: Amministra > Modifica </p>
+		</div>
+
+		<div id="content-amministra">
+			<div class="struttura-select">
+				<form name="selectCategory" method="post" action="amministraSezionePrivata.cgi">
+					<label>Seleziona categoria:</label>
+					<select onchange="selectChange()" name="cosa">
+						<option __SELECTART__ value="articolo" >Articolo</option>
+						<option __SELECTDOC__ value="documento" >Documento</option>
+					</select>
+					<input type="hidden" name="Seleziona" value="modifica"/>
+					<noscript>
+						<input class ="stile-button" type="submit" name="Modifica" value="Modifica">
+					</noscript>
+				</form>
+			</div>
+			<div class="struttura-content" id="modifica">
+				<form id="modifica-form" method="post" action="amministraSezionePrivata.cgi">
+					<input type="hidden" name="modifica" value="__VALOREMODIFICA__"/>
+					<fieldset>
+					<legend>Scegli quale __TIPO__ modificare</legend>
+						__DATI__
+					</fieldset>
+				<input class ="stile-submit" type="submit" value="Modifica __TIPO__"/>
+				</form>
+			</div>
+		</div>
+
+		<p class="nascondi"><a href="#nav">Torna al <span lang="fr">menù</span> di amministrazione</a></p>
+
+		<div id="footer">
+			<img class="footerElement" src="../img/struttura/valid-xhtml11.png" alt="immagine che indica che il sito web è valido come xhtml attraverso la verifica del W3C"/>
+			<span class="footerElement">- L'intrusa - <span lang="en">All rights reserved</span> - </span>
+			<img class="footerElement" src="../img/struttura/vcss-blue.gif" alt="immagine che indica che lo stile applicato al sito web è valido come css attraverso la verifica del W3C"/>
+		</div>
+
+
+	</body>
+</html>

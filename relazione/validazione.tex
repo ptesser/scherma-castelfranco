@@ -1,0 +1,24 @@
+\subsection{HTML5}
+Tutte le pagine sono state create con il doctype di HTML5, sotto suggerimento della Professoressa,  per non avere pi\`u errori di validazione con i tag <noscript> e con l'attributo target dei link che portano ad altri siti.
+\\ Abbiamo testato la validit\`a di tutte le pagine, attraverso il validatore \href{http://validator.nu}{http://validator.nu} in quanto il validatore del W3C al momento dei test non funzionva, con i seguenti risultati:
+\begin{itemize}
+	\item Per le pagine statiche staff.html, storia.html e errore.html la validazione \`e avvenuta con successo, mentre per quanto riguarda corsi.html si sono riscontrati degli errori sull'attributo summary del tag table in quanto in HTML5 viene considerato obsoleto e sull'attributo href del link alla gallery in quanto il carattere \& non \`e stato utilizzato per antecedere ad un carattere speciale. In seguito verranno spiegati i motivi che ci hanno fatto optare per non correggere tutti gli errori riscontrati.
+	\item Per le pagine dinamiche della parte pubblica articoli.cgi e documenti.cgi vengono generate delle pagine che non validano solo per l'attributo id degli articoli e dei documenti in quanto contengono degli spazi.
+	\\La pagina amministra.cgi invece genera una pagina valida;
+	\item Per la pagina dinamica della parte privata: amministraSezionePrivata.cgi abbiamo validato tutte le singole pagine che venivano stampate in output dal browser a seconda dei diversi casi.
+	\\ Queste vengono validate totalmente. 
+\end{itemize}
+L'omissione di alcuni errori \`e stata una scelta voluta in quanto si \`e deciso di permettere una maggiore accessibilit\`a a scapito di un possibile posizionamento migliore nei motori di ricerca.
+\\  Questa decisione viene presa perch\`e la maggior parte degli utenti che visita il sito conosce gi\'a il link  e non va a caso nella ricerca. Inoltre il sito non contiene informazioni di carattere generale sulla scherma, quindi in una ricerca casuale non ha importanza che il sito sia visualizzato tra i primi risultati.
+
+\subsection{CSS}
+La validazione dei css \`e stata fatta attraverso il validatore 
+\href{http://jigsaw.w3.org/css-validator}{http://jigsaw.w3.org/css-validator}
+e per tutti i file: stile.css, print.css e stilenojava.css il risultato \`e stato positivo senza nemmeno un warning.
+ 
+\subsection{XML e XSD}
+La validazione dei file XML rispetto agli schemi corrispondenti \`e stata effettuata tramite il seguente validatore on-line:
+\\
+\href{http://www.freeformatter.com/xml-validator-xsd.html}{http://www.freeformatter.com/xml-validator-xsd.html}
+\\Non è stato utilizzato il validatore del W3C poich\`e al momento non era funzionante.
+\\La validazione ha avuto un risultato positivo per tutti i file.

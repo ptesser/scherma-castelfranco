@@ -1,0 +1,21 @@
+#legenda-inserimento{display: none;}
+#legenda-inserimento-nojava{display: block;}
+#lingue-stile{display: none;}
+#editor-finale{display: none;}
+.nascondi-torna{position: static;}
+
+
+@media screen and (max-width:850px){
+	#panel-nav-1{display: block;}
+	#sezione-nav-1{display: none;}
+}
+
+@media screen and (max-width:480px){
+	.nascondi-articolo{display: block;}
+	.sezione:hover {
+		background-color: #ffffca;
+		color:black;
+	}
+	#panel-sidebar{display: block;}
+
+}

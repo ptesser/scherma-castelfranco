@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,portrait,top=3.5cm,bottom=3.5cm,left=3cm,right=3cm,bindingoffset=5mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[italian]{babel}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{array,booktabs}
+\usepackage{subcaption}
+
+% Identazione tabella gruppo Frontespizio.tex
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Header and Footer
+
+\fancypagestyle{std}{
+	\fancyhf{}
+	\lhead{\includegraphics[width=1.7cm]{images/frontImage.png}}
+	\chead{}
+	\rhead {\nouppercase{\leftmark}}
+	\lfoot{}
+	\cfoot{}
+	\rfoot{Pagina \thepage\ di \pageref{LastPage}}
+	\renewcommand{\headrulewidth}{0.3pt}
+	\renewcommand{\footrulewidth}{0.3pt}
+}
+
+\fancypagestyle{romano}{
+	\fancyhf{}
+	\lhead{\includegraphics[width=1.7cm]{images/frontImage.png}}
+	\chead{}
+	\lfoot{}
+	\cfoot{}
+	\rfoot{}
+	\rfoot{\thepage}
+	\renewcommand{\headrulewidth}{0.3pt}
+	\renewcommand{\footrulewidth}{0.3pt}
+}

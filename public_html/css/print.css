@@ -1,0 +1,42 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background-color: white;
+	color:black;
+	font-family: "Times New Romans", Times, serif;
+	font-size: 1em;
+	margin:1em;
+}
+
+#nav,#sidebar,#footer{
+	display: none;
+}
+
+#breadcrumb{
+		position: static;
+		clear: both;
+		margin-top: 2%;
+		padding-top: 0.2em;
+		padding-bottom: 0.2em;
+		padding-left: 1%;
+		width: 99%;
+		color:black;
+		font-weight: bold;
+}
+
+#content{
+	float: none;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+}
+
+.article{
+	page-break-after: auto;
+}
+.image-storia-left{display: none;}
+.paragrafo-right{float:none;}

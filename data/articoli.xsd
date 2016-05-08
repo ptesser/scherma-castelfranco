@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.articoli.com"
+			targetNamespace="http://www.articoli.com" elementFormDefault="qualified">
+
+<xs:element name="testi" type="tipo-testo"/>
+
+<xs:complexType name="tipo-testo">
+	<xs:sequence minOccurs="0" maxOccurs="unbounded">
+		<xs:element name="articolo" minOccurs="0" maxOccurs="unbounded" type="tipo-articolo" /> <!-- inserire in un tag <div> -->
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipo-articolo">
+	<xs:sequence>
+			<xs:element name="luogo" type="xs:string" /> <!-- inserire in un tag <p> -->
+			<xs:element name="data" type="xs:date" /> <!-- inserire in un tag <p> -->
+			<xs:element name="titolo" type="tipo-titolo" />
+			<xs:element name="img" nillable="true" type="tipo-immagine" /> <!-- da inserire nel src del tag img -->
+			<xs:element name="paragrafo" type="tipo-paragrafo" />
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipo-titolo" mixed="true">
+	<xs:choice minOccurs="0" maxOccurs="unbounded">
+		<xs:element name="span" type="tipo-span" />
+		<xs:element name="abbr" type="tipo-abbr"/>
+	</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="tipo-immagine">
+	<xs:attribute name="src" type="xs:anyURI"  />
+	<xs:attribute name="alt" type="xs:string"  />
+</xs:complexType>
+
+<xs:complexType name="tipo-paragrafo" mixed="true"> <!-- alternanza tra testo ed elementi span-->
+	<xs:choice minOccurs="0" maxOccurs="unbounded">
+		<xs:element name="span" type="tipo-span" />
+		<xs:element name="em" type="xs:string" />
+		<xs:element name="strong" type="xs:string" />
+		<xs:element name="abbr" type="tipo-abbr"/>
+	</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="tipo-span" >  <!--Content model con attributi e contenuto semplice -->
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute name="lang" type="xs:string" default="en" />
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="tipo-abbr" >  <!--Content model con attributi e contenuto semplice -->
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute name="title" type="xs:string" use="required"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+
+
+</xs:schema>
